@@ -1,0 +1,108 @@
+
+    
+
+.mainwrapper{
+    display:grid; 
+    grid-template-columns: repeat(10, 100px); 
+    grid-template-rows: repeat(10, 100px);
+  
+    width:1200px; 
+    margin-left: 20%;
+    background-color: rgb(178, 180, 245);
+}
+
+
+.header {
+    grid-column: 4/9;
+    font-size: 44px;
+}
+
+.todayweather{
+   
+    width:23px; 
+    height:23px; 
+  
+}
+
+.weeklywrapper{
+    display:grid; 
+    position:relative; 
+    grid-column: 2/11;
+    grid-row: 5/10;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+
+    
+}
+
+.cardbg{
+   
+    position:relative; 
+    width:100%; 
+    height:110%;
+    z-index: -1;
+    border-radius: 10px;
+}
+
+.weekweather {
+ position: relative; 
+    
+ width:200px; 
+ height:230px; 
+ margin-left: 20%;
+ margin-top: 20%;
+}
+
+
+
+
+.cardcontent{
+ 
+    position: absolute; 
+    background-color: rgb(199, 200, 223);
+    width:90%; 
+    height:98%; 
+    z-index: 2;
+    bottom:-5%;
+    left:5%;
+    border-radius: 20px;
+}
+
+.description{
+    position:relative; 
+    bottom:5px; 
+ }
+ 
+
+.description{
+    position:relative; 
+    bottom:-20%;
+    text-align: center;
+}
+
+.image { 
+    position:relative;
+    width:100px; 
+    height:100px; 
+    left:20%;
+    top:20%;
+    
+}
+
+.highandlow{
+    text-align: center;
+}
+
+.todayweather{
+     width:100%;
+     height:100%;
+    grid-row:2/5; 
+    grid-column: 5/8;
+    position:relative;
+    background-color: rgb(199, 200, 223);
+}
+
+.todaycontent{
+    position:relative; 
+    bottom:80%;
+}
