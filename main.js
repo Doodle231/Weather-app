@@ -1,50 +1,10 @@
-/*
 
-let currentWeather = {
-    apiKey: "cf24836904b630625a0cf302dfe09cac", 
-    fetchWeather: function (city){
-       fetch(
-       "https://api.openweathermap.org/data/2.5/weather?q=" 
-       + city 
-       + "&appid=" 
-       +this.apiKey
-       )
-       .then((Response) => Response.json())
-       .then ((data) => console.log(data))
-    
-    
-    },
-
-
-    displayWeather: function (data){
-       const {name} = data
-       const {icon, description} = data.weather[0]
-       const {temp, humidity} = data.main 
-       const {speed} = data.wind
-       console.log(name, icon, description, temp, humidity, speed)
-       
-       
-       document.querySelector(".city").innerText = "Weather in " + name
-       document.querySelector(".icon").src = "http://openweathermap.org/img/wn/" + icon + ".png"
-       document.querySelector(".description").innerText = description
-       document.querySelector(".temp").innerText = temp
-       document.querySelector(".humidity").innerText = "humidity " + humidity + "%"
-      
-      
-    document.querySelector('.wind').innerText = "wind speed" + speed + "km/h"
-} 
-
-}
-
-currentWeather.fetchWeather("Seoul")
-
-*/
 
 let weekforecast = {
    apiKey: "cf24836904b630625a0cf302dfe09cac", 
-    fetchWeather: function () {
+    fetchWeather: function (lat, lon) {
       fetch
-      ("https://api.openweathermap.org/data/2.5/onecall?lat=27.95&lon=82.45&exclude=currently,minutely,hourly&appid=cf24836904b630625a0cf302dfe09cac&units=imperial"
+      ("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=currently,minutely,hourly&appid=cf24836904b630625a0cf302dfe09cac&units=imperial"
     ).then((Response) => Response.json())
     .then ((data) => this.displayWeather(data))
  },
@@ -129,9 +89,22 @@ insertDescription()
 
 
 
-
-  weekforecast.fetchWeather()
-
+///
   
 
+  let location = "Seoul"
+   
+  const coordinatesToLocation = async () => {
 
+   const response = await fetch ("http://api.openweathermap.org/geo/1.0/direct?q="+location+"&limit=1&appid=cf24836904b630625a0cf302dfe09cac")
+   
+  
+   .then((response) => response.json())
+   .then ((data) =>  weekforecast.fetchWeather(data[0].lat, data[0].lon ))
+
+
+  let header = document.getElementsByClassName("header")[0]
+  header.innerText = "7 Day Weather Forecast for " + location
+
+  }
+  coordinatesToLocation()

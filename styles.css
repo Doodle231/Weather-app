@@ -15,20 +15,15 @@
 .header {
     grid-column: 4/9;
     font-size: 44px;
+    text-align: center;
 }
 
-.todayweather{
-   
-    width:23px; 
-    height:23px; 
-  
-}
 
 .weeklywrapper{
     display:grid; 
     position:relative; 
     grid-column: 2/11;
-    grid-row: 5/10;
+    grid-row: 4/9;
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(3, auto);
 
@@ -96,7 +91,7 @@
 .todayweather{
      width:100%;
      height:100%;
-    grid-row:2/5; 
+    grid-row:2/4; 
     grid-column: 5/8;
     position:relative;
     background-color: rgb(199, 200, 223);
@@ -105,4 +100,38 @@
 .todaycontent{
     position:relative; 
     bottom:80%;
+}
+
+.navcontainer{
+    background-color: rgb(146, 148, 216);
+    grid-column: 3/10;
+    grid-row:10/11;
+    border-radius: 5px;
+}
+
+#userinputbox{
+    position:absolute; 
+    background-color: antiquewhite;
+    width:250px; 
+    height:30px; 
+    left:50%;
+    border:2px solid rgb(110, 112, 170);
+    left:40%;
+    bottom:7%;
+}
+
+.confirmbutton{
+    position:absolute; 
+    width:80px; 
+    height:80px; 
+    background-color: green;
+    border-radius: 40px;
+    left:55%; 
+    bottom:6%
+}
+
+.confirmbutton:hover{
+    width:75px; 
+    height:75px; 
+    background-color: rgb(133, 230, 133);
 }
