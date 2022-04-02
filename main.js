@@ -5,15 +5,21 @@ let weekforecast = {
     fetchWeather: function (lat, lon) {
       fetch
       ("https://api.openweathermap.org/data/2.5/onecall?lat="+lat+"&lon="+lon+"&exclude=currently,minutely,hourly&appid=cf24836904b630625a0cf302dfe09cac&units=imperial"
-    ).then((Response) => Response.json())
-    .then ((data) => this.displayWeather(data))
- },
-   
+    )
+    .then((response) => {
+      if (!response.ok) {
+        alert("No weather found.");
+        throw new Error("No weather found.");
+      }
+      return response.json();
+    })
+    .then((data) => this.displayWeather(data));
+},
 
 
 
    displayWeather: function (data){
-      const {name} = data
+    
       
       const dailyData = data.daily
       const icons = []
@@ -90,21 +96,37 @@ insertDescription()
 
 
 ///
-  
 
-  let location = "Seoul"
+
+let confirmButton = document.getElementsByClassName("confirmbutton")[0]
+
+ confirmButton.addEventListener('click', function(){
+
    
-  const coordinatesToLocation = async () => {
+   let location = document.getElementById("userinputbox").value
 
-   const response = await fetch ("http://api.openweathermap.org/geo/1.0/direct?q="+location+"&limit=1&appid=cf24836904b630625a0cf302dfe09cac")
-   
   
-   .then((response) => response.json())
-   .then ((data) =>  weekforecast.fetchWeather(data[0].lat, data[0].lon ))
+   const coordinatesToLocation = async () => {
 
 
-  let header = document.getElementsByClassName("header")[0]
-  header.innerText = "7 Day Weather Forecast for " + location
+      const response = await fetch ("http://api.openweathermap.org/geo/1.0/direct?q="+location+"&limit=1&appid=cf24836904b630625a0cf302dfe09cac")
+         
+         .then((response) => response.json())
+         .then ((data) =>  weekforecast.fetchWeather(data[0].lat, data[0].lon ))
+         
+      
+        let header = document.getElementsByClassName("header")[0]
+        header.innerText = "7 Day Weather Forecast for " + location
+        
+        
+      
+        }
+        
+        coordinatesToLocation()
+       
 
-  }
-  coordinatesToLocation()
+})
+
+
+  
+  weekforecast.fetchWeather(27.95,-82.45)

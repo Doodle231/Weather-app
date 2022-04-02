@@ -1,5 +1,11 @@
-
-    
+body{
+    background-image: url("/sky.jpg");
+    width:100vw; 
+    height:100vh; 
+     background-repeat: no-repeat;
+     background-size: cover;
+ 
+}
 
 .mainwrapper{
     display:grid; 
@@ -8,7 +14,12 @@
   
     width:1200px; 
     margin-left: 20%;
-    background-color: rgb(178, 180, 245);
+    background-color: rgba(22, 23, 27, 0.5);
+    
+    border-radius: 20px solid black;
+
+    
+    
 }
 
 
@@ -16,6 +27,7 @@
     grid-column: 4/9;
     font-size: 44px;
     text-align: center;
+    color: rgba(241, 189, 15,.7);
 }
 
 
@@ -26,7 +38,7 @@
     grid-row: 4/9;
     grid-template-columns: repeat(3, auto);
     grid-template-rows: repeat(3, auto);
-
+   
     
 }
 
@@ -54,13 +66,14 @@
 .cardcontent{
  
     position: absolute; 
-    background-color: rgb(199, 200, 223);
+    background-color: rgba(178, 180, 245,.8);
     width:90%; 
     height:98%; 
     z-index: 2;
     bottom:-5%;
     left:5%;
     border-radius: 20px;
+    
 }
 
 .description{
@@ -81,8 +94,9 @@
     height:100px; 
     left:20%;
     top:20%;
-    
+   
 }
+
 
 .highandlow{
     text-align: center;
@@ -94,16 +108,17 @@
     grid-row:2/4; 
     grid-column: 5/8;
     position:relative;
-    background-color: rgb(199, 200, 223);
+    background-color: rgb(178, 180, 245,.5);
 }
 
 .todaycontent{
     position:relative; 
     bottom:80%;
+    
 }
 
 .navcontainer{
-    background-color: rgb(146, 148, 216);
+    background-color: rgba(146, 148, 216,.7);
     grid-column: 3/10;
     grid-row:10/11;
     border-radius: 5px;
@@ -123,11 +138,10 @@
 .confirmbutton{
     position:absolute; 
     width:80px; 
-    height:80px; 
-    background-color: green;
-    border-radius: 40px;
+    height:40px; 
+    background-color: green;;
     left:55%; 
-    bottom:6%
+    bottom:7%
 }
 
 .confirmbutton:hover{
