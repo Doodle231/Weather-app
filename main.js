@@ -54,13 +54,13 @@ for (let i = 0; i < dailyData.length; i++) {
    icons.push(dailyData[i].weather[0].icon)
 
 }
-console.log(icons)
+
 
 for (let i = 0; i < imageDivs.length; i++) {
    
 
    imageDivs[i].src = "http://openweathermap.org/img/wn/" + icons[i] + "@2x.png"
-   console.log(icons[i])
+
    
 }
 
@@ -95,7 +95,6 @@ insertDescription()
 
 
 
-///
 
 
 let confirmButton = document.getElementsByClassName("confirmbutton")[0]
@@ -103,7 +102,7 @@ let confirmButton = document.getElementsByClassName("confirmbutton")[0]
  confirmButton.addEventListener('click', function(){
 
    
-   let location = document.getElementById("userinputbox").value
+   let location = document.getElementsByClassName("inputbox")[0].value
 
   
    const coordinatesToLocation = async () => {
@@ -115,9 +114,12 @@ let confirmButton = document.getElementsByClassName("confirmbutton")[0]
          .then ((data) =>  weekforecast.fetchWeather(data[0].lat, data[0].lon ))
          
       
-        let header = document.getElementsByClassName("header")[0]
-        header.innerText = "7 Day Weather Forecast for " + location
+
+         let userText = document.getElementsByClassName("weeklyforecast")[0]
+     
+        userText.innerText = "7 Day Weather Forecast for " + location
         
+       document.getElementsByClassName("inputbox")[0].value = ''
         
       
         }
